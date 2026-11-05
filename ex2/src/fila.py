@@ -13,11 +13,11 @@ class Fila:
             raise ValueError("tipo invalido")
         self._contador[tipo] += 1
         if tipo == "prioritaria":
-            senha = "P" + str(self._contador[tipo])
-            self._prioritarias.append(senha)
+            letra, fila = "P", self._prioritarias
         else:
-            senha = "N" + str(self._contador[tipo])
-            self._normais.append(senha)
+            letra, fila = "N", self._normais
+        senha = letra + str(self._contador[tipo])
+        fila.append(senha)
         return senha
 
     @property
@@ -27,7 +27,8 @@ class Fila:
     def chamar(self):
         if not self._normais and not self._prioritarias:
             raise IndexError("fila vazia")
-        if self._prioritarias and (self._seguidas < 2 or not self._normais):
+        pode_prioritaria = self._seguidas < 2 or not self._normais
+        if self._prioritarias and pode_prioritaria:
             self._seguidas += 1
             return self._prioritarias.popleft()
         self._seguidas = 0
