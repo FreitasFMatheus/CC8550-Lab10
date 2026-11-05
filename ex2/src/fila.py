@@ -19,3 +19,4 @@ class Fila:
     def chamar(self):
         if not self._senhas:
             raise IndexError("fila vazia")
+        return self._senhas.pop(0)
