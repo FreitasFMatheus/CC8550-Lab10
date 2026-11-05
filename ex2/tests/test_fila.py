@@ -54,3 +54,11 @@ def test_prioritaria_na_frente():
     f.emitir("prioritaria")
     assert f.chamar() == "P1"
     assert f.chamar() == "N1"
+
+
+def test_prioritarias_por_chegada():
+    f = Fila()
+    f.emitir("prioritaria")
+    f.emitir("prioritaria")
+    assert f.chamar() == "P1"
+    assert f.chamar() == "P2"
