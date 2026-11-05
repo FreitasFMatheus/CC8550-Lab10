@@ -83,3 +83,8 @@ def test_quantidade_um_aceita():
 def test_quantidade_menor_que_um(quantidade):
     with pytest.raises(ValueError):
         Carrinho().adicionar(100, quantidade=quantidade)
+
+@pytest.mark.parametrize("quantidade", [1.5, 2.0, "2", True])
+def test_quantidade_nao_inteira(quantidade):
+    with pytest.raises(ValueError):
+        Carrinho().adicionar(100, quantidade=quantidade)
