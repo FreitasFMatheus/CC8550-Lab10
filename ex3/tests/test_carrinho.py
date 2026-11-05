@@ -54,3 +54,9 @@ def test_minimo_alcancado_depois_do_cupom():
     c.aplicar_cupom("DEZ")
     c.adicionar(5000)
     assert c.total == 9000
+
+def test_vinte_no_minimo():
+    c = Carrinho()
+    c.adicionar(30000)
+    c.aplicar_cupom("VINTE")
+    assert c.total == 24000
