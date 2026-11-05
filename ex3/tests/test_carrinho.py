@@ -73,3 +73,8 @@ def test_segundo_cupom_substitui():
     c.aplicar_cupom("VINTE")
     c.aplicar_cupom("DEZ")
     assert c.total == 27000
+
+def test_quantidade_um_aceita():
+    c = Carrinho()
+    c.adicionar(100, quantidade=1)
+    assert c.total == 100
