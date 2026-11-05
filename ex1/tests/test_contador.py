@@ -34,3 +34,7 @@ def test_hifen():
 
 def test_ponto_exclamacao():
     assert contar_palavras("fim. Fim!") == {"fim": 2}
+
+
+def test_virgula_ponto_virgula():
+    assert contar_palavras(",dia, ;dia;") == {"dia": 2}
