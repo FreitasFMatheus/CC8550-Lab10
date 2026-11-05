@@ -86,3 +86,11 @@ def test_limite_nao_vale_sem_normal():
     for _ in range(3):
         f.emitir("prioritaria")
     assert [f.chamar() for _ in range(3)] == ["P1", "P2", "P3"]
+
+
+def test_aguardando_diminui():
+    f = Fila()
+    f.emitir("normal")
+    f.emitir("prioritaria")
+    f.chamar()
+    assert f.aguardando == 1
