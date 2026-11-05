@@ -38,5 +38,5 @@ def test_cupom_desconhecido():
 def test_item_depois_do_cupom():
     c = Carrinho()
     c.aplicar_cupom("DEZ")
-    c.adicionar(1000)
-    assert c.total == 900
+    c.adicionar(10000)
+    assert c.total == 9000
