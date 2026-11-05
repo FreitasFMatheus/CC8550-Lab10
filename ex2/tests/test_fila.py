@@ -70,3 +70,12 @@ def test_normal_depois_de_duas_prioritarias():
     for _ in range(3):
         f.emitir("prioritaria")
     assert [f.chamar() for _ in range(4)] == ["P1", "P2", "N1", "P3"]
+
+
+def test_contagem_zera_apos_normal():
+    f = Fila()
+    f.emitir("normal")
+    f.emitir("normal")
+    for _ in range(4):
+        f.emitir("prioritaria")
+    assert [f.chamar() for _ in range(6)] == ["P1", "P2", "N1", "P3", "P4", "N2"]
