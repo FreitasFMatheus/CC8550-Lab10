@@ -47,3 +47,10 @@ def test_dez_abaixo_do_minimo():
     c.adicionar(9999)
     c.aplicar_cupom("DEZ")
     assert c.total == 9999
+
+def test_minimo_alcancado_depois_do_cupom():
+    c = Carrinho()
+    c.adicionar(5000)
+    c.aplicar_cupom("DEZ")
+    c.adicionar(5000)
+    assert c.total == 9000
