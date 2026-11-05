@@ -37,3 +37,12 @@ def test_chamar_vazia():
     f = Fila()
     with pytest.raises(IndexError):
         f.chamar()
+
+
+def test_normais_por_chegada():
+    f = Fila()
+    f.emitir("normal")
+    f.emitir("normal")
+    assert f.chamar() == "N1"
+    assert f.chamar() == "N2"
+    assert f.aguardando == 0
