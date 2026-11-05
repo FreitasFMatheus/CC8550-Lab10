@@ -6,6 +6,7 @@ class Fila:
         self._contador = {"normal": 0, "prioritaria": 0}
         self._normais = deque()
         self._prioritarias = deque()
+        self._seguidas = 0
 
     def emitir(self, tipo):
         if tipo not in self._contador:
@@ -26,6 +27,7 @@ class Fila:
     def chamar(self):
         if not self._normais and not self._prioritarias:
             raise IndexError("fila vazia")
-        if self._prioritarias:
+        if self._prioritarias and (self._seguidas < 2 or not self._normais):
+            self._seguidas += 1
             return self._prioritarias.popleft()
         return self._normais.popleft()
