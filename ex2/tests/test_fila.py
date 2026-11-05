@@ -79,3 +79,10 @@ def test_contagem_zera_apos_normal():
     for _ in range(4):
         f.emitir("prioritaria")
     assert [f.chamar() for _ in range(6)] == ["P1", "P2", "N1", "P3", "P4", "N2"]
+
+
+def test_limite_nao_vale_sem_normal():
+    f = Fila()
+    for _ in range(3):
+        f.emitir("prioritaria")
+    assert [f.chamar() for _ in range(3)] == ["P1", "P2", "P3"]
