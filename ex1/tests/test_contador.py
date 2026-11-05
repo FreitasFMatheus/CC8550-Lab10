@@ -38,3 +38,7 @@ def test_ponto_exclamacao():
 
 def test_virgula_ponto_virgula():
     assert contar_palavras(",dia, ;dia;") == {"dia": 2}
+
+
+def test_dois_pontos_interrogacao():
+    assert contar_palavras(":dia: ?dia?") == {"dia": 2}
