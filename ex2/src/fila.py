@@ -30,4 +30,5 @@ class Fila:
         if self._prioritarias and (self._seguidas < 2 or not self._normais):
             self._seguidas += 1
             return self._prioritarias.popleft()
+        self._seguidas = 0
         return self._normais.popleft()
