@@ -46,3 +46,11 @@ def test_normais_por_chegada():
     assert f.chamar() == "N1"
     assert f.chamar() == "N2"
     assert f.aguardando == 0
+
+
+def test_prioritaria_na_frente():
+    f = Fila()
+    f.emitir("normal")
+    f.emitir("prioritaria")
+    assert f.chamar() == "P1"
+    assert f.chamar() == "N1"
