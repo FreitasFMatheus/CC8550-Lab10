@@ -66,3 +66,10 @@ def test_vinte_abaixo_do_minimo():
     c.adicionar(29999)
     c.aplicar_cupom("VINTE")
     assert c.total == 29999
+
+def test_segundo_cupom_substitui():
+    c = Carrinho()
+    c.adicionar(30000)
+    c.aplicar_cupom("VINTE")
+    c.aplicar_cupom("DEZ")
+    assert c.total == 27000
