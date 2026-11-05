@@ -78,3 +78,8 @@ def test_quantidade_um_aceita():
     c = Carrinho()
     c.adicionar(100, quantidade=1)
     assert c.total == 100
+
+@pytest.mark.parametrize("quantidade", [0, -1])
+def test_quantidade_menor_que_um(quantidade):
+    with pytest.raises(ValueError):
+        Carrinho().adicionar(100, quantidade=quantidade)
