@@ -17,3 +17,9 @@ def test_numeracao_por_tipo():
     f.emitir("prioritaria")
     assert f.emitir("normal") == "N2"
     assert f.emitir("prioritaria") == "P2"
+
+
+def test_tipo_invalido():
+    f = Fila()
+    with pytest.raises(ValueError):
+        f.emitir("vip")
