@@ -23,3 +23,11 @@ def test_tipo_invalido():
     f = Fila()
     with pytest.raises(ValueError):
         f.emitir("vip")
+
+
+def test_aguardando():
+    f = Fila()
+    assert f.aguardando == 0
+    f.emitir("normal")
+    f.emitir("prioritaria")
+    assert f.aguardando == 2
